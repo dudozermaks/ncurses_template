@@ -2,7 +2,7 @@
 ## How to build:
 first, remove git folder:<br/>
 `rm -rf .git`<br/>
-then create build directory and cd into it:<br/>
+then, create build directory and cd into it:<br/>
 `mkdir build && cd build`<br/>
 create cmake build files:<br/>
 `cmake ..`<br/>
