@@ -9,7 +9,8 @@
 // Signals
 #include <csignal>
 
-const int CYCLE_TIME = 1000/5;
+const int FPS = 5;
+const float CYCLE_DURATION = 1000.0/FPS;
 
 struct winsize w;
 void update_size(int sig=0){
