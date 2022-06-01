@@ -19,8 +19,8 @@ void update_size(int sig=0){
 
 int main (int argc, char *argv[]){
   // for FPS
-	auto start_cycle = std::chrono::system_clock::now();
-	auto end_cycle = std::chrono::system_clock::now();
+  auto start_cycle = std::chrono::system_clock::now();
+  auto end_cycle = std::chrono::system_clock::now();
   // *******
   update_size(); // load size into w
   std::signal(SIGWINCH, update_size); // bind signal window change to function update_size
@@ -29,19 +29,19 @@ int main (int argc, char *argv[]){
   noecho();    // input invisible
 
   while (true) {
-		// for FPS 
-		start_cycle = std::chrono::system_clock::now();
-		std::chrono::duration<double, std::milli> work_time = start_cycle - end_cycle;
+    // for FPS 
+    start_cycle = std::chrono::system_clock::now();
+    std::chrono::duration<double, std::milli> work_time = start_cycle - end_cycle;
 
-		if (work_time.count() < CYCLE_TIME){
-			std::chrono::duration<double, std::milli> delta_ms(CYCLE_TIME - work_time.count());
-			auto delta_ms_duration = std::chrono::duration_cast<std::chrono::milliseconds>(delta_ms);
-			std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
-		}
-		// *******
+    if (work_time.count() < CYCLE_DURATION){
+      std::chrono::duration<double, std::milli> delta_ms(CYCLE_DURATION - work_time.count());
+      auto delta_ms_duration = std::chrono::duration_cast<std::chrono::milliseconds>(delta_ms);
+      std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
+    }
+    // *******
 
     // for FPS
-		end_cycle = std::chrono::system_clock::now();
+    end_cycle = std::chrono::system_clock::now();
   }
   endwin();
   return 0;
