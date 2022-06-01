@@ -1,8 +1,13 @@
 # ncurses C++ template
 ## How to build:
-`rm -rf .git README.md`<br/>
+first, remove git folder:<br/>
+`rm -rf .git`<br/>
+then create build directory and cd into it:<br/>
 `mkdir build && cd build`<br/>
+create cmake build files:<br/>
 `cmake ..`<br/>
 `cd ..`<br/>
+and build your coolest project with this command:<br/>
 `cmake --build build/`<br/>
-The executable is `build/main`
+to run type: <br/>
+`./build/main`
