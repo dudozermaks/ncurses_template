@@ -39,7 +39,9 @@ int main (int argc, char *argv[]){
       std::this_thread::sleep_for(std::chrono::milliseconds(delta_ms_duration.count()));
     }
     // *******
-
+    clear();
+    // draw
+    refresh();
     // for FPS
     end_cycle = std::chrono::system_clock::now();
   }
