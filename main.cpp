@@ -8,6 +8,8 @@
 #include <unistd.h>
 // Signals
 #include <csignal>
+// For wchar characters
+#include <clocale>
 
 const int FPS = 5;
 const float CYCLE_DURATION = 1000.0/FPS;
@@ -24,6 +26,7 @@ int main (int argc, char *argv[]){
   // *******
   update_size(); // load size into w
   std::signal(SIGWINCH, update_size); // bind signal window change to function update_size
+  std::setlocale(LC_ALL, ""); // for wchar_t ncurses support
   initscr();   // init ncurses 
   curs_set(0); // cursor invisible
   noecho();    // input invisible
